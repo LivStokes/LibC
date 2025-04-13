@@ -6,17 +6,17 @@
 /*   By: olstokes <olstokes@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 17:07:33 by olstokes          #+#    #+#             */
-/*   Updated: 2025/04/13 14:09:30 by olstokes         ###   ########.fr       */
+/*   Updated: 2025/04/13 18:34:56 by olstokes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
+
 #include <unistd.h>
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
-*/
+
 void	ft_putnbr(int nb)
 {
 	long int	nbr;
@@ -37,10 +37,10 @@ void	ft_putnbr(int nb)
 		ft_putchar('0' + nbr);
 	}
 }
-/*
+
 int	main(void)
 {
-	ft_putnbr(198575);
+	ft_putnbr(-2147483648);
 	ft_putchar('\n');
 }
-*/
+

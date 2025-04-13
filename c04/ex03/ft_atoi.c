@@ -6,34 +6,31 @@
 /*   By: olstokes <olstokes@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:40:38 by olstokes          #+#    #+#             */
-/*   Updated: 2025/04/13 14:11:31 by olstokes         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:21:34 by olstokes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
-#include <unistd.h>
-#include <ctype.h>
-*/
+
+//#include <unistd.h>
+//#include <ctype.h>
+//#include <string.h>
+
 int	ft_atoi(char *str)
 {
 	int	i;
 	int	sign;
 	int	result;
-	int	minus_count;
 
 	i = 0;
 	sign = 1;
 	result = 0;
-	minus_count = 0;
-	while (isspace(str[i]))
+	while (isspace(str[i])) 
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
-			minus_count++;
+			sign = -sign;
 		i++;
 	}
-	if (minus_count % 2 != 0)
-		sign = -1;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i++] - '0');
@@ -69,11 +66,12 @@ void	ft_putnbr(int nb)
 
 int	main(void)
 {
-	char	str[] = " ---+--+1234ab567";
-	int	n;
+	int	nb;
+	char	str[50];
 
-	n = ft_atoi(str);
-	ft_putnbr(n);
+	strcpy(str, " ---+--+1234ab567");
+	nb = ft_atoi(str);
+	ft_putnbr(nb);
 	write(1, "\n", 1);
 	return (0);
 }

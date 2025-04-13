@@ -6,7 +6,7 @@
 /*   By: olstokes <olstokes@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 17:34:49 by olstokes          #+#    #+#             */
-/*   Updated: 2025/04/09 13:14:36 by olstokes         ###   ########.fr       */
+/*   Updated: 2025/04/13 14:57:15 by olstokes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,30 @@ int	ft_strlen(char *str)
 	return (i);
 }
 /*
-void	ft_putnbr(int n)
+void	ft_putchar(char c)
 {
-	char	c;
-
-	if (n >= 10)
-		ft_putnbr(n / 10);
-	c = (n % 10) + '0';
 	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	long int	nbr;
+
+	nbr = nb;
+	if (nbr < 0)
+	{
+		ft_putchar('-');
+		nbr = -nbr;
+	}
+	if (nbr > 9)
+	{
+		ft_putnbr(nbr / 10);
+		ft_putnbr(nbr % 10);
+	}
+	else
+	{
+		ft_putchar('0' + nbr);
+	}
 }
 
 int	main(void)
