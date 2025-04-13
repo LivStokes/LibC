@@ -1,49 +1,80 @@
-// isspace whitespace characters - decimal values 9\t, 10\n, 11\v, 12\f, 13\r, 32is space.
-// 
-//
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olstokes <olstokes@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/13 13:40:38 by olstokes          #+#    #+#             */
+/*   Updated: 2025/04/13 14:11:31 by olstokes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+/*
+#include <unistd.h>
 #include <ctype.h>
-
-int ft_atoi(char *str)
+*/
+int	ft_atoi(char *str)
 {
-    int i = 0;
-    int sign = 1;
-    int result = 0;
-    int minus_count = 0;
+	int	i;
+	int	sign;
+	int	result;
+	int	minus_count;
 
-    // Step 1: Skip leading whitespace
-    while (isspace(str[i]))
-        i++;
-
-    // Step 2: Count '+' and '-' signs
-    while (str[i] == '+' || str[i] == '-')
-    {
-        if (str[i] == '-')
-            minus_count++;
-        i++;
-    }
-
-    // Determine final sign
-    if (minus_count % 2 != 0)
-        sign = -1;
-
-    // Step 3: Process digits
-    while (str[i] >= '0' && str[i] <= '9')
-    {
-        result = result * 10 + (str[i] - '0');
-        i++;
-    }
-
-    // Step 4: Apply sign and return
-    return result * sign;
+	i = 0;
+	sign = 1;
+	result = 0;
+	minus_count = 0;
+	while (isspace(str[i]))
+		i++;
+	while (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			minus_count++;
+		i++;
+	}
+	if (minus_count % 2 != 0)
+		sign = -1;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i++] - '0');
+	}
+	return (result * sign);
+}
+/*
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
-#include <stdio.h>
-
-int main(int argc, char **argv)
+void	ft_putnbr(int nb)
 {
-    if (argc == 2)
-        printf("%d\n", ft_atoi(argv[1]));
-    return 0;
+	long int	nbr;
+
+	nbr = nb;
+	if (nbr < 0)
+	{
+		ft_putchar('-');
+		nbr = -nbr;
+	}
+	if (nbr > 9)
+	{
+		ft_putnbr(nbr / 10);
+		ft_putnbr(nbr % 10);
+	}
+	else
+	{
+		ft_putchar('0' + nbr);
+	}
 }
 
+int	main(void)
+{
+	char	str[] = " ---+--+1234ab567";
+	int	n;
+
+	n = ft_atoi(str);
+	ft_putnbr(n);
+	write(1, "\n", 1);
+	return (0);
+}
+*/
