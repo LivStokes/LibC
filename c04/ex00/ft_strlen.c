@@ -6,12 +6,12 @@
 /*   By: olstokes <olstokes@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 17:34:49 by olstokes          #+#    #+#             */
-/*   Updated: 2025/04/13 14:57:15 by olstokes         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:15:29 by olstokes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
-//#include <string.h>
+#include <unistd.h>
+#include <string.h>
 
 int	ft_strlen(char *str)
 {
@@ -22,7 +22,7 @@ int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
-/*
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -48,7 +48,7 @@ void	ft_putnbr(int nb)
 		ft_putchar('0' + nbr);
 	}
 }
-
+/*
 int	main(void)
 {
 	char	len;

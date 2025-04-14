@@ -6,7 +6,7 @@
 /*   By: olstokes <olstokes@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 17:07:33 by olstokes          #+#    #+#             */
-/*   Updated: 2025/04/14 16:21:17 by olstokes         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:16:03 by olstokes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ void	ft_putnbr(int nb)
 		}
 	}
 }
-
+/*
 int	main(void)
 {
 	ft_putnbr(2147483647);
 	ft_putchar('\n');
 	return (0);
 }
+*/

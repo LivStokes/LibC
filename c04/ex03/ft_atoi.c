@@ -6,13 +6,13 @@
 /*   By: olstokes <olstokes@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:40:38 by olstokes          #+#    #+#             */
-/*   Updated: 2025/04/13 17:21:34 by olstokes         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:15:05 by olstokes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
-//#include <ctype.h>
-//#include <string.h>
+#include <unistd.h>
+#include <ctype.h>
+#include <string.h>
 
 int	ft_atoi(char *str)
 {
@@ -37,7 +37,7 @@ int	ft_atoi(char *str)
 	}
 	return (result * sign);
 }
-/*
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -56,14 +56,14 @@ void	ft_putnbr(int nb)
 	if (nbr > 9)
 	{
 		ft_putnbr(nbr / 10);
-		ft_putnbr(nbr % 10);
+		ft_putnbr(nbr % 10 + '0');
 	}
 	else
 	{
 		ft_putchar('0' + nbr);
 	}
 }
-
+/*
 int	main(void)
 {
 	int	nb;
