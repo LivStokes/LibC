@@ -6,11 +6,10 @@
 /*   By: olstokes <olstokes@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:32:32 by olstokes          #+#    #+#             */
-/*   Updated: 2025/04/14 17:16:46 by olstokes         ###   ########.fr       */
+/*   Updated: 2025/04/15 12:10:57 by olstokes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <unistd.h>
 
 void	ft_putchar(char c)
