@@ -13,16 +13,16 @@ void	rotone(char *str)
 		if (str[i] >= 'a' && str[i] <= 'z')
 		{
 			if (str[i] == 'z')
-				str[i] = 'a';
+				str[i] = 'g';
 			else
-				str[i] += 1;
+				str[i] += 7;
 		}
 		else if (str[i] >= 'A' && str[i] <= 'Z')
 		{
 			if (str[i] == 'Z')
-				str[i] = 'A';
+				str[i] = 'G';
 			else
-				str[i] += 1;
+				str[i] += 7;
 		}
 		write(1, &str[i], 1);
 		i++;
