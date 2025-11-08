@@ -1,0 +1,94 @@
+// to make a rectangle of
+\*
+
+/*\
+* *
+\*/
+
+1. **Argument validation is minimal:**
+   It returns if `x <= 0 || y <= 0`, but doesn't explicitly communicate failure or handle edge cases like `x == 1` or `y == 1`.
+
+2. **`int` used for small indices:**
+   Use `size_t` or `unsigned int` for indices and sizes — since these values should never be negative.
+
+3. **Magic characters in `rush()`:**
+   Hardcoding characters (`'/'`, `'\\'`, `'*'`) inline makes it harder to adjust later. Better to define them with clear naming.
+
+4. **Tight coupling between loops and drawing logic:**
+   We can make the structure clearer by separating *drawing logic* from *iteration control*.
+
+5. **No error handling or testability:**
+   It prints directly to stdout — no way to redirect to a buffer or test it programmatically.
+
+---
+
+Here’s a better version that keeps the same behavior but is safer and easier to understand:
+
+#include <unistd.h>
+#include <stddef.h>
+
+static void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+/**
+ * Prints one line of the rectangle.
+ * @param width: number of columns
+ * @param first: left character
+ * @param mid: character used in the middle
+ * @param last: right character
+ */
+static void	print_line(size_t width, char first, char mid, char last)
+{
+	if (width == 0)
+		return ;
+
+	ft_putchar(first);
+
+	for (size_t j = 1; j + 1 < width; ++j)
+		ft_putchar(mid);
+
+	if (width > 1)
+		ft_putchar(last);
+
+	ft_putchar('\n');
+}
+
+/**
+ * Prints a rectangle (rush style) of width x and height y.
+ * Uses / and \ for corners, * for borders, and space inside.
+ */
+void	rush(size_t width, size_t height)
+{
+	if (width == 0 || height == 0)
+		return ;
+
+	const char TOP_LEFT = '/';
+	const char TOP_RIGHT = '\\';
+	const char BOTTOM_LEFT = '\\';
+	const char BOTTOM_RIGHT = '/';
+	const char HORIZONTAL = '*';
+	const char VERTICAL = '*';
+	const char FILL = ' ';
+
+	for (size_t i = 0; i < height; ++i)
+	{
+		if (i == 0)
+			print_line(width, TOP_LEFT, HORIZONTAL, TOP_RIGHT);
+		else if (i == height - 1)
+			print_line(width, BOTTOM_LEFT, HORIZONTAL, BOTTOM_RIGHT);
+		else
+			print_line(width, VERTICAL, FILL, VERTICAL);
+	}
+}
+
+
+
+If you wanted to make it even more robust:
+
+* Add an optional output function pointer (so it can print to a buffer instead of stdout).
+* Use unit tests to verify all combinations of `x` and `y`.
+* Add optional color support or ASCII art styles.
+*\
+
