@@ -13,21 +13,16 @@
 //#include <unistd.h>
 //#include <string.h>
 
-int	ft_strcmp(char *s1, char *s2)
+int ft_strcmp(char *s1, char *s2)
 {
-	int	i;
-
-	i = 0;
-	while (1)
-	{
-		if (s1[i] != s2[i] || s1[i] == '\0' || s2[i] == '\0')
-		{
-			break ;
-		}
-		i++;
-	}
-	return (s1[i] - s2[i]);
+    while(*s1 != '\0' && *s1 == *s2)
+    {
+        s1++;
+        s2++;
+    }
+    return (*s1 - *s2);
 }
+
 /*
 void	ft_putstr(char *str)
 {
@@ -47,17 +42,11 @@ int	main(void)
 	strcpy(s2, "abd");
 	result = ft_strcmp(s1, s2);
 	if (result == 0)
-	{
 		ft_putstr("Equal");
-	}
 	else if (result < 0)
-	{
 		ft_putstr("s1 < s2\n");
-	}
 	else
-	{
 		ft_putstr("s1 > s2\n");
-	}
 	return (0);
 }
 */

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
 int	ft_iterative_factorial(int nb)
 {
@@ -27,45 +27,9 @@ int	ft_iterative_factorial(int nb)
 	return (result);
 }
 
-void	ft_putchar(char c)
+int main(void)
 {
-	write(1, &c, 1);
+    int n;
+    n = 4;
+    printf("%i\n", ft_iterative_factorial(n)); // prints 24
 }
-
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
-		write(1, "-2147483648", 11);
-	else
-	{
-		if (nb < 0)
-		{
-			ft_putchar('-');
-			nb = -nb;
-		}
-		if (nb > 9)
-		{
-			ft_putnbr(nb / 10);
-			ft_putchar(nb % 10 + '0');
-		}
-		else
-		{
-			ft_putchar(nb + '0');
-		}
-	}
-}
-/*
-int	main(void)
-{
-	int	num;
-	int	result;
-
-	num = 10;
-	result = ft_iterative_factorial(num);
-	if (result == 0)
-		return (0);
-	ft_putnbr(result);
-	ft_putchar('\n');
-	return (0);
-}
-*/

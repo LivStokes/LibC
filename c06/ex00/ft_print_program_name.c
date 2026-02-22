@@ -6,18 +6,26 @@ your .c file.
 
 #include <unistd.h>
 
-int main(int argc, char *argv[]) 
+void ft_putchar(char c)
 {
-    const char *str;
+	write(1, &c, 1);
+}
 
-    *str = argv[0];
-    if (argc > 0) 
+void ft_putstr(char *str)
+{
+    int i;
+
+    i = 0;
+    while (str[i] != '\0')
     {
-        while (*str) 
-        {
-            write(1, str, 1); // write one character at a time to stdout
-            str++;
-        }
-        write(1, "\n", 1); // newline at the end
+        write(1, &str[i], 1);
+        i++;
     }
+}
+
+int	main(int argc, char **argv)
+{
+    ft_putstr(argv[0]);
+	ft_putchar('\n');
+	return (0); // The value 0 is returned to the operating system's shell (like Bash), signifying that the program completed without any errors.
 }

@@ -14,7 +14,7 @@
 
 int	is_space(char c)
 {
-	return (c == 32 || (c >= 9 && c <= 13));
+	return (c == 32 || (c > 8 && c < 14));
 }
 
 int	ft_atoi(char *str)

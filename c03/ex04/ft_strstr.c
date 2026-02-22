@@ -15,25 +15,24 @@
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	char	*s;
-	char	*ss;
+    int i;
+    int j;
 
-	if (*to_find == '\0')
-		return (str);
-	while (*str)
-	{
-		s = str;
-		ss = to_find;
-		while (*s && *ss && *s == *ss)
-		{
-			s++;
-			ss++;
-		}
-		if (*ss == '\0')
-			return (str);
-		str++;
-	}
-	return (0);
+    if (to_find[0] == '\0')
+        return (str);
+
+    i = 0;
+    while (str[i] != '\0')
+    {
+        j = 0;
+        while (to_find[j] != '\0' && str[i + j] == to_find[j])
+            j++;
+        if (to_find[j] == '\0')
+            return (&str[i]);
+        i++;
+    }
+    return (NULL);
+
 }
 /*
 void	ft_putstr(char *str)

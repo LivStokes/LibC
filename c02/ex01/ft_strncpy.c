@@ -30,7 +30,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	dest[n] = '\0';
 	return (dest);
 }
-
+/*
 void	ft_putstr(char *str)
 {
 	int	i;
@@ -54,3 +54,4 @@ int	main(void)
 	write(1 , "\n", 1);
 	return (0);
 }
+*/
