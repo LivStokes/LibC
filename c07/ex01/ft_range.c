@@ -11,22 +11,14 @@ int *ft_range(int min, int max);
 
 int *ft_range(int min, int max) 
 {
-    // If min is greater than or equal to max, return a null pointer
-    if (min >= max) 
-    {
-        return NULL;
-    }
-
-    // Allocate memory for the array (max - min) integers
-    int *arr = (int *)malloc((max - min) * sizeof(int));
-    if (arr == NULL) 
-    {
-        return NULL;  // Return NULL if memory allocation fails
-    }
-
-    // Fill the array with values from min to max - 1
+    int *r;
     int i;
-    
+
+    if (min >= max) 
+        return (NULL);
+    r = (int *)malloc((max - min) * sizeof(int));
+    if (!r) 
+        return (NULL);    
     i = 0;
     while (min < max) 
     {
@@ -34,6 +26,5 @@ int *ft_range(int min, int max)
         min++;
         i++;
     }
-
     return (arr);
 }

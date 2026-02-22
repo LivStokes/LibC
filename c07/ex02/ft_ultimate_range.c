@@ -1,46 +1,28 @@
-/*
-• Create a function ft_ultimate_range which allocates and assigns an array of ints.
-This int array should contain all values between min and max.
-• Min included - max excluded.
-• Here’s how it should be prototyped :
-int ft_ultimate_range(int **range, int min, int max);
-• The size of range should be returned (or -1 on error).
-• If the value of min is greater or equal to max’s value, range will point on NULL
-and it should return 0.
-*/
+#include <stdlib.h> 
 
-#include <stdlib.h>  // For malloc
+int ft_ultimate_range(int **range, int min, int max) 
+{
+    int size;
+    int i;
 
-// Function to create an array with values from min (inclusive) to max (exclusive)
-int ft_ultimate_range(int **range, int min, int max) {
-    // If min >= max, set range to NULL and return 0
+    size = 0;
+    i = 0;
     if (min >= max) 
     {
         *range = NULL;
         return 0;
     }
-
-    // Calculate the size of the array
-    int size = max - min;
-
-    // Allocate memory for the array
+    size = max - min;
     *range = (int *)malloc(size * sizeof(int));
     if (*range == NULL) 
-    {
-        return -1;  // Return -1 if memory allocation fails
-    }
-
-    // Use a while loop to fill the array with values from min to max - 1
-    int i = 0;
+        return -1;
     while (min < max) 
     {
         (*range)[i] = min;
         min++;
         i++;
     }
-
-    // Return the size of the array
-    return size;
+    return (size);
 }
 
 
