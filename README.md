@@ -64,5 +64,6 @@ This repository contains my solutions for the 42 piscine. It involves C programm
 
 {insert photo of C grades}
 
-Every friday there was an exam to test the knowledge gained suring the week.
+Every friday there was an exam to test the knowledge gained during the week.
 {insert photo of grades}
+
